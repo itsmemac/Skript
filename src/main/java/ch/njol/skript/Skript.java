@@ -102,6 +102,7 @@ import org.skriptlang.skript.bukkit.input.InputModule;
 import org.skriptlang.skript.bukkit.itemcomponents.ItemComponentModule;
 import org.skriptlang.skript.bukkit.log.runtime.BukkitRuntimeErrorConsumer;
 import org.skriptlang.skript.bukkit.loottables.LootTableModule;
+import org.skriptlang.skript.bukkit.potion.PotionModule;
 import org.skriptlang.skript.bukkit.registration.BukkitSyntaxInfos;
 import org.skriptlang.skript.bukkit.tags.TagModule;
 import org.skriptlang.skript.common.CommonModule;
@@ -600,12 +601,12 @@ public final class Skript extends JavaPlugin implements Listener {
 			FurnaceModule.load();
 			LootTableModule.load();
 			skript.loadModules(
-					new DamageSourceModule(),
-					new EntityModule(),
-					new ItemComponentModule(),
-					new BrewingModule(),
-					new CommonModule()
-				);
+				new CommonModule(),
+				new BrewingModule(),
+				new EntityModule(),
+				new DamageSourceModule(),
+				new ItemComponentModule(),
+				new PotionModule());
 		} catch (final Exception e) {
 			exception(e, "Could not load required .class files: " + e.getLocalizedMessage());
 			setEnabled(false);
