@@ -3,7 +3,7 @@ package ch.njol.skript.expressions;
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAPIException;
 import ch.njol.skript.doc.Description;
-import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Example;
 import ch.njol.skript.doc.Name;
 import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.*;
@@ -37,15 +37,13 @@ import java.util.function.Function;
 		"Asking for elements from a queue will also remove them from the queue, see the new queue expression for more information.",
 		"See also: <a href='#ExprRandom'>random expression</a>"
 })
-@Examples({
-	"broadcast the first 3 elements of {top players::*}",
-	"set {_last} to last element of {top players::*}",
-	"set {_random player} to random element out of all players",
-	"send 2nd last element of {top players::*} to player",
-	"set {page2::*} to elements from 11 to 20 of {top players::*}",
-	"broadcast the 1st element in {queue}",
-	"broadcast the first 3 elements in {queue}"
-})
+@Example("broadcast the first 3 elements of {top players::*}")
+@Example("set {_last} to last element of {top players::*}")
+@Example("set {_random player} to random element out of all players")
+@Example("send 2nd last element of {top players::*} to player")
+@Example("set {page2::*} to elements from 11 to 20 of {top players::*}")
+@Example("broadcast the 1st element in {queue}")
+@Example("broadcast the first 3 elements in {queue}")
 @Since("2.0, 2.7 (relative to last element), 2.8.0 (range of elements)")
 public class ExprElement<T> extends SimpleExpression<T> implements KeyProviderExpression<T> {
 

@@ -2,7 +2,7 @@ package ch.njol.skript.expressions;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
-import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Example;
 import ch.njol.skript.doc.Name;
 import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Expression;
@@ -24,7 +24,7 @@ import java.util.ListIterator;
 
 @Name("Reversed List")
 @Description("Reverses given list.")
-@Examples({"set {_list::*} to reversed {_list::*}"})
+@Example("set {_list::*} to reversed {_list::*}")
 @Since("2.4")
 public class ExprReversedList extends SimpleExpression<Object> {
 
