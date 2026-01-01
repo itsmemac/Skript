@@ -16,7 +16,6 @@ import com.google.common.collect.Iterators;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -55,12 +54,29 @@ public class ExprReversedList extends SimpleExpression<Object> implements KeyedI
 	}
 
 	@Override
-	protected Object @Nullable [] get(Event event) {
-		Object[] inputArray = list.getArray(event).clone();
-		Object[] array = (Object[]) Array.newInstance(getReturnType(), inputArray.length);
-		System.arraycopy(inputArray, 0, array, 0, inputArray.length);
+	@Nullable
+	protected Object[] get(Event event) {
+		Object[] array = list.getArray(event);
 		reverse(array);
 		return array;
+	}
+
+	@Override
+	public @Nullable Iterator<?> iterator(Event event) {
+		List<?> list = Arrays.asList(this.list.getArray(event));
+		return new Iterator<>() {
+			private final ListIterator<?> listIterator = list.listIterator(list.size());
+
+			@Override
+			public boolean hasNext() {
+				return listIterator.hasPrevious();
+			}
+
+			@Override
+			public Object next() {
+				return listIterator.previous();
+			}
+		};
 	}
 
 	@Override
@@ -153,7 +169,7 @@ public class ExprReversedList extends SimpleExpression<Object> implements KeyedI
 			return SimplifiedLiteral.fromExpression(this);
 		return this;
 	}
-    
+
 	@Override
 	public String toString(@Nullable Event event, boolean debug) {
 		return "reversed " + list.toString(event, debug);

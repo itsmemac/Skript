@@ -155,7 +155,7 @@ public class ExprSortedList extends SimpleExpression<Object> implements KeyedIte
 		if (list instanceof Literal<?>)
 			return SimplifiedLiteral.fromExpression(this);
 		return this;
-  }
+	}
 
 	@Override
 	public String toString(@Nullable Event event, boolean debug) {

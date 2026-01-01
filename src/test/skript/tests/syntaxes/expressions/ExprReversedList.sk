@@ -8,7 +8,7 @@ test "reversed":
 	loop {_size} times:
 		assert the (loop-counter)th element of {_list::*} is {_reversed::%{_size} - loop-counter + 1%}
 
-	set {_indices::*} to reversed indices of {_list::*} 
+	set {_indices::*} to reversed indices of {_list::*}
 	loop reversed {_list::*}:
 		assert loop-value is {_reversed::%loop-counter%}
 		assert loop-index is {_indices::%loop-counter%}
