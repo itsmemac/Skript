@@ -17,11 +17,17 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
 import org.skriptlang.skript.common.function.DefaultFunction;
 import org.skriptlang.skript.common.function.Parameter.Modifier.RangedModifier;
+import org.skriptlang.skript.common.function.ScriptParameter;
 
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @deprecated Use {@link ScriptParameter}
+ * or {@link DefaultFunction.Builder#parameter(String, Class, Modifier...)} instead.
+ */
+@Deprecated(forRemoval = true, since = "INSERT VERSION")
 public final class Parameter<T> implements org.skriptlang.skript.common.function.Parameter<T> {
 
 	public final static Pattern PARAM_PATTERN = Pattern.compile("^\\s*([^:(){}\",]+?)\\s*:\\s*([a-zA-Z ]+?)\\s*(?:\\s*=\\s*(.+))?\\s*$");
@@ -50,15 +56,14 @@ public final class Parameter<T> implements org.skriptlang.skript.common.function
 	 */
 	final boolean single;
 
+	private final Set<Modifier> modifiers;
+
 	/**
-	 * Whether this parameter takes in key-value pairs.
-	 * <br>
-	 * If this is true, a {@link ch.njol.skript.lang.KeyedValue} array containing key-value pairs will be passed to
-	 * {@link Function#execute(FunctionEvent, Object[][])} rather than a value-only object array.
+	 * @deprecated Use {@link org.skriptlang.skript.common.function.Parameter}
+	 * or {@link DefaultFunction.Builder#parameter(String, Class, Modifier...)}
+	 * instead.
 	 */
 	final boolean keyed;
-
-	private final Set<Modifier> modifiers;
 
 	/**
 	 * @deprecated Use {@link DefaultFunction.Builder#parameter(String, Class, Modifier...)} instead.
@@ -69,7 +74,9 @@ public final class Parameter<T> implements org.skriptlang.skript.common.function
 	}
 
 	/**
-	 * @deprecated Use {@link DefaultFunction.Builder#parameter(String, Class, Modifier...)} instead.
+	 * @deprecated Use {@link org.skriptlang.skript.common.function.Parameter}
+	 * or {@link DefaultFunction.Builder#parameter(String, Class, Modifier...)}
+	 * instead.
 	 */
 	@Deprecated(since = "2.13", forRemoval = true)
 	public Parameter(String name, ClassInfo<T> type, boolean single, @Nullable Expression<? extends T> def, boolean keyed) {
@@ -89,7 +96,9 @@ public final class Parameter<T> implements org.skriptlang.skript.common.function
 	}
 
 	/**
-	 * @deprecated Use {@link DefaultFunction.Builder#parameter(String, Class, Modifier...)} instead.
+	 * @deprecated Use {@link org.skriptlang.skript.common.function.Parameter}
+	 * or {@link DefaultFunction.Builder#parameter(String, Class, Modifier...)}
+	 * instead.
 	 */
 	@Deprecated(since = "2.13", forRemoval = true)
 	public Parameter(String name, ClassInfo<T> type, boolean single, @Nullable Expression<? extends T> def, boolean keyed, boolean optional) {
@@ -134,12 +143,17 @@ public final class Parameter<T> implements org.skriptlang.skript.common.function
 	}
 
 	/**
-	 * @return The type of this parameter as a {@link ClassInfo}.
+	 * @deprecated Use {@link #type()} instead.
 	 */
+	@Deprecated(forRemoval = true, since = "INSERT VERSION")
 	public ClassInfo<T> getType() {
 		return type;
 	}
 
+	/**
+	 * @deprecated Use {@link ScriptParameter#parse(String, Class, String)}} instead.
+	 */
+	@Deprecated(forRemoval = true, since = "INSERT VERSION")
 	public static <T> @Nullable Parameter<T> newInstance(String name, ClassInfo<T> type, boolean single, @Nullable String def) {
 		if (!Variable.isValidVariableName(name, true, false)) {
 			Skript.error("A parameter's name must be a valid variable name.");
@@ -176,11 +190,9 @@ public final class Parameter<T> implements org.skriptlang.skript.common.function
 	}
 
 	/**
-	 * Parses function parameters from a string. The string should look something like this:
-	 * <pre>"something: string, something else: number = 12"</pre>
-	 * @param args The string to parse.
-	 * @return The parsed parameters
+	 * @deprecated Use {@link ch.njol.skript.structures.StructFunction.FunctionParser#parse(String, String, String, String, boolean)} instead.
 	 */
+	@Deprecated(forRemoval = true, since = "INSERT VERSION")
 	public static @Nullable List<Parameter<?>> parse(String args) {
 		List<Parameter<?>> params = new ArrayList<>();
 		boolean caseInsensitive = SkriptConfig.caseInsensitiveVariables.value();
@@ -235,55 +247,6 @@ public final class Parameter<T> implements org.skriptlang.skript.common.function
 				break;
 		}
 		return params;
-	}
-
-	/**
-	 * Evaluates this parameter's default expression.
-	 *
-	 * @param event the event in which to evaluate the expression 
-	 * @return an object array containing either value-only elements or {@code KeyedValue[]} when keyed
-	 * @throws IllegalStateException if this parameter does not have a default value
-	 * @see #evaluate(Expression, Event)
-	 */
-	public Object[] evaluateDefault(Event event) {
-		if (def == null)
-			throw new IllegalStateException("This parameter does not have a default value");
-		return evaluate(def, event);
-	}
-
-	/**
-	 * Evaluates the provided argument expression and returns the resulting values, taking into account this parameter's modifiers.
-	 *
-	 * <p>If this parameter has the {@link org.skriptlang.skript.common.function.Parameter.Modifier#KEYED} modifier,
-	 * the returned array will contain {@link ch.njol.skript.lang.KeyedValue} objects, pairing each value with its corresponding key.
-	 * If the argument expression does not provide keys, numerical indices (1, 2, 3, ...) will be used as keys;
-	 * otherwise, the returned array will contain only the values.</p>
-	 *
-	 * @param argument the argument passed to this parameter; or {@code null} to use the default value if present
-	 * @param event the event in which to evaluate the expression 
-	 * @return an object array containing either value-only elements or {@code KeyedValue[]} when keyed
-	 * @throws IllegalStateException if the argument is {@code null} and this parameter does not have a default value
-	 */
-	public Object[] evaluate(@Nullable Expression<? extends T> argument, Event event) {
-		if (argument == null) {
-			if (!modifiers.contains(Modifier.OPTIONAL))
-				throw new IllegalStateException("This parameter is required, but no argument was provided");
-			return evaluateDefault(event);
-		}
-
-		Object[] values = argument.getArray(event);
-
-		// Don't allow mutating across function boundary; same hack is applied to variables
-		for (int i = 0; i < values.length; i++)
-			values[i] = Classes.clone(values[i]);
-
-		if (!hasModifier(Modifier.KEYED))
-			return values;
-
-		String[] keys = KeyProviderExpression.areKeysRecommended(argument)
-			? ((KeyProviderExpression<?>) argument).getArrayKeys(event)
-			: null;
-		return KeyedValue.zip(values, keys);
 	}
 
 	/**
@@ -350,12 +313,18 @@ public final class Parameter<T> implements org.skriptlang.skript.common.function
 
 	@Override
 	public @NotNull Class<T> type() {
-		return type.getC();
+		//noinspection unchecked
+		return (Class<T>) Signature.getReturns(single, type.getC());
 	}
 
 	@Override
 	public @Unmodifiable @NotNull Set<Modifier> modifiers() {
 		return Collections.unmodifiableSet(modifiers);
+	}
+
+	@Override
+	public boolean isSingle() {
+		return single;
 	}
 
 }
