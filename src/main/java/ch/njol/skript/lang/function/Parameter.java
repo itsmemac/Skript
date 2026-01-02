@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
  * @deprecated Use {@link ScriptParameter}
  * or {@link DefaultFunction.Builder#parameter(String, Class, Modifier...)} instead.
  */
-@Deprecated(forRemoval = true, since = "INSERT VERSION")
+@Deprecated(forRemoval = true, since = "2.14")
 public final class Parameter<T> implements org.skriptlang.skript.common.function.Parameter<T> {
 
 	public final static Pattern PARAM_PATTERN = Pattern.compile("^\\s*([^:(){}\",]+?)\\s*:\\s*([a-zA-Z ]+?)\\s*(?:\\s*=\\s*(.+))?\\s*$");
@@ -145,7 +145,7 @@ public final class Parameter<T> implements org.skriptlang.skript.common.function
 	/**
 	 * @deprecated Use {@link #type()} instead.
 	 */
-	@Deprecated(forRemoval = true, since = "INSERT VERSION")
+	@Deprecated(forRemoval = true, since = "2.14")
 	public ClassInfo<T> getType() {
 		return type;
 	}
@@ -153,7 +153,7 @@ public final class Parameter<T> implements org.skriptlang.skript.common.function
 	/**
 	 * @deprecated Use {@link ScriptParameter#parse(String, Class, String)}} instead.
 	 */
-	@Deprecated(forRemoval = true, since = "INSERT VERSION")
+	@Deprecated(forRemoval = true, since = "2.14")
 	public static <T> @Nullable Parameter<T> newInstance(String name, ClassInfo<T> type, boolean single, @Nullable String def) {
 		if (!Variable.isValidVariableName(name, true, false)) {
 			Skript.error("A parameter's name must be a valid variable name.");
@@ -192,7 +192,7 @@ public final class Parameter<T> implements org.skriptlang.skript.common.function
 	/**
 	 * @deprecated Use {@link ch.njol.skript.structures.StructFunction.FunctionParser#parse(String, String, String, String, boolean)} instead.
 	 */
-	@Deprecated(forRemoval = true, since = "INSERT VERSION")
+	@Deprecated(forRemoval = true, since = "2.14")
 	public static @Nullable List<Parameter<?>> parse(String args) {
 		List<Parameter<?>> params = new ArrayList<>();
 		boolean caseInsensitive = SkriptConfig.caseInsensitiveVariables.value();

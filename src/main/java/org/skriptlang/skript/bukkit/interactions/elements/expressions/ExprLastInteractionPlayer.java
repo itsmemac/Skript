@@ -28,7 +28,7 @@ import org.skriptlang.skript.registration.SyntaxRegistry;
 	""")
 @Example("kill the last player that attacked the last spawned interaction")
 @Example("feed the last player who interacted with {_i}")
-@Since("INSERT VERSION")
+@Since("2.14")
 public class ExprLastInteractionPlayer extends SimplePropertyExpression<Entity, OfflinePlayer> {
 
 	public static void register(SyntaxRegistry registry) {

@@ -16,7 +16,7 @@ import org.skriptlang.skript.registration.SyntaxRegistry;
 })
 @Example("set the scale of {_display} to vector(0,2,0)")
 @Example("set the scale of {_particle} to 1.5")
-@Since("INSERT VERSION")
+@Since("2.14")
 @RelatedProperty("scale")
 public class PropExprScale extends PropertyBaseExpression<ExpressionPropertyHandler<?,?>> {
 

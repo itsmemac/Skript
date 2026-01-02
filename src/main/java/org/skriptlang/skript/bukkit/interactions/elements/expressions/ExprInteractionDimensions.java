@@ -22,7 +22,7 @@ import org.skriptlang.skript.registration.SyntaxRegistry;
 	""")
 @Example("set interaction height of last spawned interaction to 5.3")
 @Example("set interaction width of last spawned interaction to 2")
-@Since("INSERT VERSION")
+@Since("2.14")
 public class ExprInteractionDimensions extends SimplePropertyExpression<Entity, Number> {
 
 	public static void register(SyntaxRegistry registry) {

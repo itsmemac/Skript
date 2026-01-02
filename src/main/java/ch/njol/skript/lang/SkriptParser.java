@@ -1193,7 +1193,7 @@ public final class SkriptParser {
 	/**
 	 * @deprecated Use {@link #parseFunctionReference()} instead.
 	 */
-	@Deprecated(forRemoval = true, since = "INSERT VERSION")
+	@Deprecated(forRemoval = true, since = "2.14")
 	public <T> @Nullable FunctionReference<T> parseFunction(@Nullable Class<? extends T>... types) {
 		if (context != ParseContext.DEFAULT && context != ParseContext.EVENT) {
 			return null;

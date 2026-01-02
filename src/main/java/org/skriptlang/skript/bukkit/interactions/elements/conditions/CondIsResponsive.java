@@ -19,7 +19,7 @@ import org.skriptlang.skript.registration.SyntaxRegistry;
 	""")
 @Example("if last spawned interaction is responsive:")
 @Example("if last spawned interaction is unresponsive:")
-@Since("INSERT VERSION")
+@Since("2.14")
 public class CondIsResponsive extends PropertyCondition<Entity> {
 
 	public static void register(SyntaxRegistry registry) {

@@ -71,7 +71,7 @@ public class ParticleModule implements AddonModule {
 		// game effects
 		Classes.registerClass(new ClassInfo<>(GameEffect.class, "gameeffect")
 			.user("game ?effects?")
-			.since("INSERT VERSION")
+			.since("2.14")
 			.description("Various game effects that can be played for players, like record disc songs, splash potions breaking, or fake bone meal effects.")
 			.name("Game Effect")
 			.usage(GameEffect.getAllNamesWithoutData())
@@ -141,14 +141,14 @@ public class ParticleModule implements AddonModule {
 			.user("entity ?effects?")
 			.name("Entity Effect")
 			.description("Various entity effects that can be played for entities, like wolf howling, or villager happy.")
-			.since("INSERT VERSION"));
+			.since("2.14"));
 
 		// particles
 
 		// Bukkit Particle enum. Used for Classes.toString, but should not be used directly.
 		Classes.registerClass(new ClassInfo<>(Particle.class, "bukkitparticle")
 			.name(ClassInfo.NO_DOC)
-			.since("INSERT VERSION")
+			.since("2.14")
 			.parser(new Parser<>() {
 				@Override
 				public Particle parse(String input, ParseContext context) {
@@ -173,7 +173,7 @@ public class ParticleModule implements AddonModule {
 
 		Classes.registerClass(new ClassInfo<>(ParticleEffect.class, "particle")
 			.user("particle( ?effect)?s?")
-			.since("INSERT VERSION")
+			.since("2.14")
 			.description("Various particles.")
 			.name("Particle")
 			.usage(ParticleEffect.getAllNamesWithoutData())
@@ -202,7 +202,7 @@ public class ParticleModule implements AddonModule {
 
 		Classes.registerClass(new ClassInfo<>(ConvergingEffect.class, "convergingparticle")
 			.user("converging ?particle( ?effect)?s?")
-			.since("INSERT VERSION")
+			.since("2.14")
 			.description("A particle effect where particles converge towards a point.")
 			.name("Converging Particle Effect")
 			.supplier(() -> ParticleUtils.getConvergingParticles().stream()
@@ -213,7 +213,7 @@ public class ParticleModule implements AddonModule {
 
 		Classes.registerClass(new ClassInfo<>(DirectionalEffect.class, "directionalparticle")
 			.user("directional ?particle( ?effect)?s?")
-			.since("INSERT VERSION")
+			.since("2.14")
 			.description("A particle effect which can be given a directional velocity.")
 			.name("Directional Particle Effect")
 			.supplier(() -> ParticleUtils.getDirectionalParticles().stream()
@@ -224,7 +224,7 @@ public class ParticleModule implements AddonModule {
 
 		Classes.registerClass(new ClassInfo<>(ScalableEffect.class, "scalableparticle")
 			.user("scalable ?particle( ?effect)?s?")
-			.since("INSERT VERSION")
+			.since("2.14")
 			.description("A particle effect which can be scaled up or down.")
 			.name("Scalable Particle Effect")
 			.supplier(() -> ParticleUtils.getScalableParticles().stream()

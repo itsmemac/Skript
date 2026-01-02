@@ -30,7 +30,7 @@ import java.util.Iterator;
 		broadcast recursive indices of {_data::*}
 		# broadcasts "a::b::c", "a::b::d", "a::e", "f"
 	""")
-@Since("INSERT VERSION")
+@Since("2.14")
 @Keywords({"deep", "nested"})
 public class ExprRecursive extends WrapperExpression<Object> implements KeyProviderExpression<Object> {
 

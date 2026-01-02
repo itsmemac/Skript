@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 /**
  * @deprecated Use {@link org.skriptlang.skript.common.function.FunctionReference} instead.
  */
-@Deprecated(forRemoval = true, since = "INSERT VERSION")
+@Deprecated(forRemoval = true, since = "2.14")
 public class FunctionReference<T> implements Contract, Executable<Event, T[]> {
 
 	private static final String AMBIGUOUS_ERROR =

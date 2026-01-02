@@ -156,7 +156,7 @@ public class Signature<T> implements org.skriptlang.skript.common.function.Signa
 	/**
 	 * @deprecated Use {@link #getParameter(String)} or {@link #parameters()} instead.
 	 */
-	@Deprecated(forRemoval = true, since = "INSERT VERSION")
+	@Deprecated(forRemoval = true, since = "2.14")
 	public Parameter<?> getParameter(int index) {
 		return getParameters()[index];
 	}
@@ -164,7 +164,7 @@ public class Signature<T> implements org.skriptlang.skript.common.function.Signa
 	/**
 	 * @deprecated Use {@link #parameters()} instead.
 	 */
-	@Deprecated(forRemoval = true, since = "INSERT VERSION")
+	@Deprecated(forRemoval = true, since = "2.14")
 	public Parameter<?>[] getParameters() {
 		return Arrays.stream(parameters.all())
 				.map(Signature::toOldParameter)

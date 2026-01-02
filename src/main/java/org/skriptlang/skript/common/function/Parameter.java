@@ -104,7 +104,7 @@ public interface Parameter<T> {
 	/**
 	 * @deprecated Use {@link #isSingle()} instead.
 	 */
-	@Deprecated(forRemoval = true, since = "INSERT VERSION")
+	@Deprecated(forRemoval = true, since = "2.14")
 	default boolean single() {
 		return isSingle();
 	}

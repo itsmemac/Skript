@@ -23,7 +23,7 @@ import org.skriptlang.skript.registration.SyntaxRegistry;
 	Interactions default to unresponsive.
 	""")
 @Example("make last spawned interaction responsive")
-@Since("INSERT VERSION")
+@Since("2.14")
 public class EffMakeResponsive extends Effect {
 
 	public static void register(SyntaxRegistry registry) {

@@ -246,7 +246,7 @@ public abstract class Utils {
 	/**
 	 * @deprecated Use {@link #isPlural(String)} instead.
 	 */
-	@Deprecated(forRemoval = true, since = "INSERT VERSION")
+	@Deprecated(forRemoval = true, since = "2.14")
 	public static NonNullPair<String, Boolean> getEnglishPlural(String word) {
 		PluralResult result = isPlural(word);
 		return new NonNullPair<>(result.updated, result.plural);

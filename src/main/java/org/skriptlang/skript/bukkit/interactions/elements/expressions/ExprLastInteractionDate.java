@@ -26,7 +26,7 @@ import org.skriptlang.skript.registration.SyntaxRegistry;
 	Using 'clicked on' will return the latest attack or interaction, whichever was more recent.
 	""")
 @Examples("if the last time {_interaction} was clicked < 5 seconds ago")
-@Since("INSERT VERSION")
+@Since("2.14")
 public class ExprLastInteractionDate extends SimplePropertyExpression<Entity, Date> {
 
 	public static void register(SyntaxRegistry registry) {

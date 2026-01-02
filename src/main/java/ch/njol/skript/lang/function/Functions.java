@@ -144,7 +144,7 @@ public abstract class Functions {
 	/**
 	 * @deprecated Use {@link FunctionParser#parse(String, String, String, String, boolean)} instead.
 	 */
-	@Deprecated(forRemoval = true, since = "INSERT VERSION")
+	@Deprecated(forRemoval = true, since = "2.14")
 	public static @Nullable Signature<?> parseSignature(String script, String name, String args, @Nullable String returnType, boolean local) {
 		return FunctionParser.parse(script, name, args, returnType, local);
 	}

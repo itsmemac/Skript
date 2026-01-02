@@ -501,7 +501,7 @@ public class BukkitClasses {
 				.user("respawn(ing)? ?reasons?")
 				.name("Respawn Reason")
 				.description("The respawn reason in a <a href='#respawn'>respawn</a> event.")
-				.since("INSERT VERSION"));
+				.since("2.14"));
 
 		if (Skript.classExists("com.destroystokyo.paper.event.server.PaperServerListPingEvent")) {
 			Classes.registerClass(new ClassInfo<>(CachedServerIcon.class, "cachedservericon")

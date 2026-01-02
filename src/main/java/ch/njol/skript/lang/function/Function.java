@@ -54,7 +54,7 @@ public abstract class Function<T> implements org.skriptlang.skript.common.functi
 	/**
 	 * @deprecated Use {@link Signature#parameters()} and {@link Parameters#all()} instead.
 	 */
-	@Deprecated(forRemoval = true, since = "INSERT VERSION")
+	@Deprecated(forRemoval = true, since = "2.14")
 	public Parameter<?>[] getParameters() {
 		return Arrays.stream(sign.getParameters()).map(
 				Signature::toOldParameter)
@@ -64,7 +64,7 @@ public abstract class Function<T> implements org.skriptlang.skript.common.functi
 	/**
 	 * @deprecated Use {@link Signature#parameters()} and {@link Parameters#get(int)} instead.
 	 */
-	@Deprecated(forRemoval = true, since = "INSERT VERSION")
+	@Deprecated(forRemoval = true, since = "2.14")
 	public Parameter<?> getParameter(int index) {
 		return Signature.toOldParameter(sign.getParameter(index));
 	}
@@ -87,7 +87,7 @@ public abstract class Function<T> implements org.skriptlang.skript.common.functi
 	/**
 	 * @deprecated Use {@link #execute(FunctionEvent, FunctionArguments)} instead.
 	 */
-	@Deprecated(forRemoval = true, since = "INSERT VERSION")
+	@Deprecated(forRemoval = true, since = "2.14")
 	public final T @Nullable [] execute(Object[][] params) {
 		FunctionEvent<? extends T> event = new FunctionEvent<>(this);
 
@@ -178,7 +178,7 @@ public abstract class Function<T> implements org.skriptlang.skript.common.functi
 	/**
 	 * @deprecated Use {@link #execute(FunctionEvent, FunctionArguments)} instead.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.14", forRemoval = true)
 	public abstract T @Nullable [] execute(FunctionEvent<?> event, Object[][] params);
 
 	/**
