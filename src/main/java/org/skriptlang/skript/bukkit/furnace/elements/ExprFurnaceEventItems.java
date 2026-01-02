@@ -43,7 +43,7 @@ import org.jetbrains.annotations.Nullable;
 		broadcast smelting item
 		clear smelting item
 	""")
-@Events({"smelt", "fuel burn", "smelting start", "furnace extract"})
+@Events({"smelt", "fuel burn", "start smelt", "furnace item extract"})
 @Since("2.10")
 public class ExprFurnaceEventItems extends PropertyExpression<Block, ItemStack> {
 
