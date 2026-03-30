@@ -24,6 +24,7 @@ import io.papermc.paper.event.world.border.WorldBorderBoundsChangeEvent;
 import io.papermc.paper.event.world.border.WorldBorderBoundsChangeFinishEvent;
 import io.papermc.paper.event.world.border.WorldBorderCenterChangeEvent;
 import io.papermc.paper.event.world.border.WorldBorderEvent;
+import net.kyori.adventure.text.Component;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -189,7 +190,7 @@ public final class BukkitEventValues {
 		}
 		// SignChangeEvent
 		registry.register(EventValue.simple(SignChangeEvent.class, Player.class, SignChangeEvent::getPlayer));
-		registry.register(EventValue.simple(SignChangeEvent.class, String[].class, SignChangeEvent::getLines));
+		registry.register(EventValue.simple(SignChangeEvent.class, Component[].class, event -> event.lines().toArray(new Component[0])));
 
 		// === EntityEvents ===
 		registry.register(EventValue.builder(EntityEvent.class, Entity.class)
@@ -574,11 +575,12 @@ public final class BukkitEventValues {
 			book.setItemMeta(event.getNewBookMeta());
 			return book;
 		}));
-		registry.register(EventValue.builder(PlayerEditBookEvent.class, String[].class)
-			.getter(event -> event.getPreviousBookMeta().getPages().toArray(new String[0]))
+		registry.register(EventValue.builder(PlayerEditBookEvent.class, Component[].class)
+			.getter(event -> event.getPreviousBookMeta().pages().toArray(new Component[0]))
 			.time(Time.PAST)
 			.build());
-		registry.register(EventValue.simple(PlayerEditBookEvent.class, String[].class, event -> event.getNewBookMeta().getPages().toArray(new String[0])));
+		registry.register(EventValue.simple(PlayerEditBookEvent.class, Component[].class, event ->
+			event.getNewBookMeta().pages().toArray(new Component[0])));
 		//ItemDespawnEvent
 		registry.register(EventValue.simple(ItemDespawnEvent.class, Item.class, ItemDespawnEvent::getEntity));
 		registry.register(EventValue.simple(ItemDespawnEvent.class, ItemStack.class, event -> event.getEntity().getItemStack()));
