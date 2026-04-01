@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
  * Handles parsing chat messages.
  * @deprecated See {@link TextComponentParser}.
  */
-@Deprecated(since = "INSERT VERSION", forRemoval = true)
+@Deprecated(since = "2.15", forRemoval = true)
 public class ChatMessages {
 	
 	/**

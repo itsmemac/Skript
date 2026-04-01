@@ -32,7 +32,7 @@ public class TextModule extends HierarchicalAddonModule {
 			.description("Text components are used to represent how text is displayed in Minecraft.",
 				"This includes colors, decorations, and more.")
 			.examples("\"<red><bold>This text is red and bold!\"")
-			.since("INSERT VERSION")
+			.since("2.15")
 			.parser(new Parser<>() {
 				@Override
 				public boolean canParse(ParseContext context) {
@@ -56,7 +56,7 @@ public class TextModule extends HierarchicalAddonModule {
 			.description("An audience is a receiver of media, such as individual players, the console, or groups of players (such as those on a team or in a world).")
 			.examples("send \"Hello world!\" to the player",
 				"send action bar \"ALERT! A horde of zombies has overrun the central village.\" to the world")
-			.since("INSERT VERSION")
+			.since("2.15")
 			// note: CommandSender is purposefully used here as there may be many Audiences in a single event
 			// for example, there is a conflict in events with Player and World (e.g. all player events)
 			// we continue to use CommandSender for retaining existing behavior

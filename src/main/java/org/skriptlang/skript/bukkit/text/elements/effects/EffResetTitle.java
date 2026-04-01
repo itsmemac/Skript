@@ -22,7 +22,7 @@ import org.skriptlang.skript.registration.SyntaxRegistry;
 })
 @Example("reset the titles of all players")
 @Example("clear the title")
-@Since("2.3, INSERT VERSION (clearing the title)")
+@Since("2.3, 2.15 (clearing the title)")
 public class EffResetTitle extends Effect {
 
 	public static void register(SyntaxRegistry syntaxRegistry) {

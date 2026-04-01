@@ -26,7 +26,7 @@ import java.util.Locale;
 	on player pick item:
 		send "You picked %the picked item%!" to the player
 	""")
-@Since("INSERT VERSION")
+@Since("2.15")
 @RequiredPlugins("1.21.5+")
 @Keywords({"pick", "picked", "picked item", "picked block", "picked entity"})
 public class ExprPickedItem extends SimpleExpression<Object> implements EventRestrictedSyntax {

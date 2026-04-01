@@ -31,7 +31,7 @@ import org.skriptlang.skript.registration.SyntaxRegistry;
 	""")
 @Since({
 	"2.0",
-	"INSERT VERSION ('uncolored' vs 'unformatted' distinction)"
+	"2.15 ('uncolored' vs 'unformatted' distinction)"
 })
 public class ExprColored extends SimplePropertyExpression<String, Object> {
 
@@ -78,7 +78,7 @@ public class ExprColored extends SimplePropertyExpression<String, Object> {
 	/**
 	 * @deprecated This method is only available for compatibility purposes.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	public boolean isUnsafeFormat() {
 		return isColor && isFormat;
 	}

@@ -25,7 +25,7 @@ import org.skriptlang.skript.registration.SyntaxRegistry;
 @Name("Chat Recipients")
 @Description("The recipients of a chat event")
 @Example("chat recipients")
-@Since("2.2-Fixes-v7, 2.2-dev35 (clearing recipients), INSERT VERSION (returns Audience)")
+@Since("2.2-Fixes-v7, 2.2-dev35 (clearing recipients), 2.15 (returns Audience)")
 @Events("chat")
 public class ExprChatRecipients extends SimpleExpression<Audience> implements EventRestrictedSyntax {
 

@@ -51,7 +51,7 @@ public class EvtPlayerPickItem extends SkriptEvent {
 					cancel event
 					send "You cannot pick diamond blocks!" to the player
 				""")
-			.addSince("INSERT VERSION")
+			.addSince("2.15")
 			.addRequiredPlugin("1.21.5+")
 			.build());
 

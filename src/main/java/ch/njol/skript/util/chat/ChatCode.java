@@ -8,7 +8,7 @@ import org.skriptlang.skript.bukkit.text.TextComponentParser;
  * and also, some formatting codes (mostly <a href="https://wiki.vg/Chat">this</a>)
  * @deprecated See {@link TextComponentParser}.
  */
-@Deprecated(since = "INSERT VERSION", forRemoval = true)
+@Deprecated(since = "2.15", forRemoval = true)
 public interface ChatCode {
 	
 	/**

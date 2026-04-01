@@ -606,7 +606,7 @@ public abstract class Utils {
 	/**
 	 * @deprecated See {@link TextComponentParser}.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	public static @Nullable String getChatStyle(final String s) {
 		SkriptColor color = SkriptColor.fromName(s);
 
@@ -618,7 +618,7 @@ public abstract class Utils {
 	/**
 	 * @deprecated See {@link TextComponentParser}.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	public static @NotNull String replaceChatStyles(String message) {
 		if (message.isEmpty())
 			return message;
@@ -629,7 +629,7 @@ public abstract class Utils {
 	/**
 	 * @deprecated See {@link TextComponentParser}.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	public static @NotNull String replaceEnglishChatStyles(String message) {
 		if (message.isEmpty())
 			return message;
@@ -642,7 +642,7 @@ public abstract class Utils {
 	/**
 	 * @deprecated See {@link TextComponentParser}.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	private static @NotNull String replaceChatStyle(String message) {
 		String m = StringUtils.replaceAll(Matcher.quoteReplacement(message), STYLE_PATTERN, matcher -> {
 			SkriptColor color = SkriptColor.fromName(matcher.group(1));
@@ -680,7 +680,7 @@ public abstract class Utils {
 	/**
 	 * @deprecated See {@link TextComponentParser}.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	public static @Nullable String parseUnicode(String string) {
 		Matcher matcher = UNICODE_PATTERN.matcher(string);
 		if (!matcher.matches())
@@ -698,7 +698,7 @@ public abstract class Utils {
 	/**
 	 * @deprecated See {@link TextComponentParser}.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	public static @Nullable ChatColor parseHexColor(String string) {
 		Matcher matcher = HEX_PATTERN.matcher(string);
 		if (!matcher.matches())

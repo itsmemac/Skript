@@ -10,7 +10,7 @@ import org.skriptlang.skript.bukkit.text.TextComponentParser;
  * Chat codes that come with Skript by default.
  * @deprecated See {@link TextComponentParser}.
  */
-@Deprecated(since = "INSERT VERSION", forRemoval = true)
+@Deprecated(since = "2.15", forRemoval = true)
 public enum SkriptChatCode implements ChatCode {
 	
 	reset {

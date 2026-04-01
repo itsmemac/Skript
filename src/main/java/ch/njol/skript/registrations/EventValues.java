@@ -23,7 +23,7 @@ import java.util.List;
  * <br>
  * Or an unmodifiable view using {@code Skript.instance().registry(EventValueRegistry.class)}.
  */
-@Deprecated(since = "INSERT VERSION", forRemoval = true)
+@Deprecated(since = "2.15", forRemoval = true)
 public class EventValues {
 
 	private EventValues() {}

@@ -22,7 +22,7 @@ import org.skriptlang.skript.registration.SyntaxRegistry;
 @Examples("send action bar \"Hello player!\" to player")
 @Since({
 	"2.3",
-	"INSERT VERSION (support for sending anything)"
+	"2.15 (support for sending anything)"
 })
 public class EffActionBar extends Effect {
 

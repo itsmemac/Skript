@@ -15,7 +15,7 @@ import org.skriptlang.skript.bukkit.text.TextComponentParser;
 /**
  * @deprecated See {@link TextComponentParser}.
  */
-@Deprecated(since = "INSERT VERSION", forRemoval = true)
+@Deprecated(since = "2.15", forRemoval = true)
 public class BungeeConverter {
 
 	private static boolean HAS_FONT_SUPPORT = Skript.methodExists(BaseComponent.class, "setFont", String.class);
@@ -23,7 +23,7 @@ public class BungeeConverter {
 	/**
 	 * @deprecated See {@link TextComponentParser}.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	public static BaseComponent convert(MessageComponent origin) {
 		BaseComponent base;
 		if (origin.translation != null) {
@@ -61,7 +61,7 @@ public class BungeeConverter {
 	/**
 	 * @deprecated See {@link TextComponentParser}.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	public static BaseComponent[] convert(List<MessageComponent> origins) {
 		return convert(origins.toArray(new MessageComponent[0]));
 	}
@@ -69,7 +69,7 @@ public class BungeeConverter {
 	/**
 	 * @deprecated See {@link TextComponentParser}.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	public static BaseComponent[] convert(MessageComponent[] origins) {
 		BaseComponent[] bases = new BaseComponent[origins.length];
 		for (int i = 0; i < origins.length; i++) {

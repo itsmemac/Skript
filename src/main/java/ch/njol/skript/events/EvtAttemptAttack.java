@@ -45,7 +45,7 @@ public class EvtAttemptAttack extends SkriptEvent {
                         attacker isn't holding a diamond sword
                         cancel event
                     """)
-				.since("INSERT VERSION");
+				.since("2.15");
 	}
 	
 	private EntityData<?> @Nullable [] types;

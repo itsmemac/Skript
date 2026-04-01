@@ -326,7 +326,7 @@ public class VariableString implements Expression<String> {
 	/**
 	 * @deprecated Use {@link #toString(Event)} as the behavior is the same.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	public String toUnformattedString(Event event) {
 		if (isSimple) {
 			assert simple != null;
@@ -604,7 +604,7 @@ public class VariableString implements Expression<String> {
 	 * @return Message components.
 	 * @deprecated See {@link org.skriptlang.skript.bukkit.text.TextComponentParser}.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	public List<MessageComponent> getMessageComponents(Event event) {
 		return getMessageComponents(event, null);
 	}
@@ -619,7 +619,7 @@ public class VariableString implements Expression<String> {
 	 * @return Message components.
 	 * @deprecated See {@link org.skriptlang.skript.bukkit.text.TextComponentParser}.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	public List<MessageComponent> getMessageComponents(Event event, @Nullable StringBuilder unformattedBuilder) {
 		if (isSimple) { // Trusted, constant string in a script
 			assert simple != null;
@@ -668,7 +668,7 @@ public class VariableString implements Expression<String> {
 	 * @return Message components.
 	 * @deprecated See {@link org.skriptlang.skript.bukkit.text.TextComponentParser}.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	public List<MessageComponent> getMessageComponentsUnsafe(Event event) {
 		if (isSimple) { // Trusted, constant string in a script
 			assert simple != null;
@@ -686,7 +686,7 @@ public class VariableString implements Expression<String> {
 	 * @deprecated See {@link org.skriptlang.skript.bukkit.text.TextComponentParser} and
 	 *  {@link net.kyori.adventure.text.serializer.json.JSONComponentSerializer}.
 	 */
-	@Deprecated(since = "INSERT VERSION", forRemoval = true)
+	@Deprecated(since = "2.15", forRemoval = true)
 	public String toChatString(Event event) {
 		return ChatMessages.toJson(getMessageComponents(event));
 	}

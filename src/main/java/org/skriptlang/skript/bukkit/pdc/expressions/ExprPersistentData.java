@@ -72,7 +72,7 @@ import static ch.njol.skript.classes.Changer.ChangerUtils.getArithmeticChangeTyp
 			set damage to {_damage}
 	""")
 @Example("set {_pet-uuids::*} to list data tag \"pets\" of player")
-@Since("INSERT VERSION")
+@Since("2.15")
 @Keywords({"pdc", "persistent data container", "custom data", "nbt"})
 public class ExprPersistentData extends PropertyExpression<Object, Object> {
 

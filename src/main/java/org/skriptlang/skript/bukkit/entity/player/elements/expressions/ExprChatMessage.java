@@ -27,7 +27,7 @@ import org.skriptlang.skript.registration.SyntaxRegistry;
 		player has permission "admin"
 		set the message to "<light red>%message%"
 	""")
-@Since("1.4.6, INSERT VERSION (support for reset)")
+@Since("1.4.6, 2.15 (support for reset)")
 @Events("chat")
 public class ExprChatMessage extends SimpleExpression<Component> implements EventRestrictedSyntax {
 

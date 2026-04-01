@@ -18,7 +18,7 @@ import org.skriptlang.skript.bukkit.text.TextComponentParser;
  * sent to client.
  * @deprecated See {@link TextComponentParser}.
  */
-@Deprecated(since = "INSERT VERSION", forRemoval = true)
+@Deprecated(since = "2.15", forRemoval = true)
 public class MessageComponent {
 	
 	public String text = "";

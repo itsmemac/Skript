@@ -39,7 +39,7 @@ import java.time.Duration;
 @Example("send subtitle \"Party!\" to all players")
 @Since({
 	"2.3",
-	"INSERT VERSION (support for showing anything)"
+	"2.15 (support for showing anything)"
 })
 public class EffSendTitle extends Effect {
 
