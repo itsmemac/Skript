@@ -15,6 +15,8 @@ import org.jetbrains.annotations.Nullable;
 import org.skriptlang.skript.bukkit.pdc.PDCUtils;
 import org.skriptlang.skript.registration.SyntaxRegistry;
 
+import java.util.Locale;
+
 @Name("Has Persistent Data Tag")
 @Description("""
 	Checks if the specified objects have persistent data tags with the given keys.
@@ -35,7 +37,7 @@ import org.skriptlang.skript.registration.SyntaxRegistry;
 		else:
 			broadcast "Your tool is in good condition."
 	""")
-@Since("INSERT VERSION")
+@Since("2.15")
 @Keywords({"pdc", "persistent data container", "custom data", "nbt"})
 public class CondHasPersistentDataTag extends Condition {
 
@@ -65,7 +67,7 @@ public class CondHasPersistentDataTag extends Condition {
 	public boolean check(Event event) {
 		boolean keysAnd = this.keys.getAnd();
 		NamespacedKey[] keys = this.keys.stream(event)
-			.map(key -> NamespacedUtils.checkValidationAndSend(key, this))
+			.map(key -> NamespacedUtils.checkValidationAndSend(key.toLowerCase(Locale.ENGLISH), this))
 			.toArray(NamespacedKey[]::new);
 		if (keys.length == 0)
 			return isNegated();

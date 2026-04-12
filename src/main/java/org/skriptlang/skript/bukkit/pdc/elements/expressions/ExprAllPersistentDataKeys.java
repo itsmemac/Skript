@@ -32,7 +32,7 @@ import java.util.List;
 	for each {_key} in persistent data keys of player's tool:
 	    broadcast "Persistent data tag %{_key}%: %data tag {_key} of player's tool%"
 	""")
-@Since("INSERT VERSION")
+@Since("2.15")
 @Keywords({"pdc", "persistent data container", "custom data", "nbt"})
 public class ExprAllPersistentDataKeys extends PropertyExpression<Object, String> {
 
